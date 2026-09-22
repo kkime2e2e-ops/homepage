@@ -1,11 +1,11 @@
 :root {
+  /* Dark theme (default) */
   --bg: #0E1116;
   --card-bg: #161B22;
   --border: #262D36;
   --text: #E6EDF3;
   --text-muted: #8B98A5;
-  --accent: #5EC8B8;
-  --button-accent: #D99A5B;
+  --accent: #D99A5B;
   --email-color: #7FBF8F;
   --email-color-hover: #A3DBAE;
   --content-max: 680px;
@@ -15,6 +15,15 @@
   --card-radius: 10px;
   --card-padding: 28px;
   --card-gap: 20px;
+}
+
+body[data-theme="light"] {
+  --bg: #F1F7F5;
+  --card-bg: #FFFFFF;
+  --border: #DCE9E4;
+  --text: #263330;
+  --text-muted: #6B7D77;
+  /* --accent intentionally unchanged: same point color in both themes */
 }
 
 * {
@@ -33,6 +42,7 @@ body {
   font-size: 17px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3 {
@@ -112,6 +122,7 @@ a:hover {
   border-radius: 50%;
   border: 1px solid var(--border);
   object-fit: cover;
+  transition: border-color 0.2s ease;
 }
 
 .sidebar-nav {
@@ -146,6 +157,44 @@ a:hover {
 .sidebar-nav a.active {
   color: var(--accent);
   font-weight: 600;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-top: 1.25rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+body[data-theme="light"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+body[data-theme="light"] .theme-toggle .icon-moon {
+  display: none;
 }
 
 .tags {
@@ -192,6 +241,7 @@ a:hover {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border);
+  transition: border-color 0.2s ease;
 }
 
 /* Content */
@@ -210,6 +260,7 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
   padding: var(--card-padding);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .intro {
@@ -249,6 +300,7 @@ a:hover {
 .item-list li {
   padding: 24px 0;
   border-top: 1px solid var(--border);
+  transition: border-color 0.2s ease;
 }
 
 .item-list li:first-child {
