@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    const currentTheme = () => (document.body.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+    themeToggle.setAttribute('aria-pressed', currentTheme() === 'light' ? 'true' : 'false');
+
+    themeToggle.addEventListener('click', () => {
+      const next = currentTheme() === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', next);
+      themeToggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+      try {
+        localStorage.setItem('theme', next);
+      } catch (e) {}
+    });
+  }
+
   const navLinks = Array.from(document.querySelectorAll('.sidebar-nav a'));
   const sections = navLinks
     .map((link) => document.querySelector(link.getAttribute('href')))
