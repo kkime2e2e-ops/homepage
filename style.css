@@ -1,5 +1,4 @@
 :root {
-  /* Dark theme (default) */
   --bg: #0E1116;
   --card-bg: #161B22;
   --border: #262D36;
@@ -18,32 +17,6 @@
   --card-gap: 20px;
 }
 
-/* Light theme: follows system preference until the visitor picks explicitly */
-@media (prefers-color-scheme: light) {
-  body:not([data-theme="dark"]) {
-    --bg: #F1F7F5;
-    --card-bg: #FFFFFF;
-    --border: #DCE9E4;
-    --text: #263330;
-    --text-muted: #6B7D77;
-    --accent: #177566;
-    --email-color: #2F7A4C;
-    --email-color-hover: #26703F;
-  }
-}
-
-/* Light theme: explicit choice via the toggle, persisted in localStorage */
-body[data-theme="light"] {
-  --bg: #F1F7F5;
-  --card-bg: #FFFFFF;
-  --border: #DCE9E4;
-  --text: #263330;
-  --text-muted: #6B7D77;
-  --accent: #177566;
-  --email-color: #2F7A4C;
-  --email-color-hover: #26703F;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -60,7 +33,6 @@ body {
   font-size: 17px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3 {
@@ -97,7 +69,6 @@ a {
   color: var(--accent);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
-  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 a:hover {
@@ -141,7 +112,6 @@ a:hover {
   border-radius: 50%;
   border: 1px solid var(--border);
   object-fit: cover;
-  transition: border-color 0.2s ease;
 }
 
 .sidebar-nav {
@@ -178,45 +148,6 @@ a:hover {
   font-weight: 600;
 }
 
-/* Theme toggle */
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  margin-top: 1.25rem;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--card-bg);
-  color: var(--button-accent);
-  cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.theme-toggle:hover {
-  border-color: var(--button-accent);
-}
-
-.theme-toggle svg {
-  width: 16px;
-  height: 16px;
-}
-
-.theme-toggle .icon-sun {
-  display: none;
-}
-
-body[data-theme="light"] .theme-toggle .icon-sun {
-  display: block;
-}
-
-body[data-theme="light"] .theme-toggle .icon-moon {
-  display: none;
-}
-
 .tags {
   font-size: 0.85rem;
   color: var(--text-muted);
@@ -241,7 +172,7 @@ body[data-theme="light"] .theme-toggle .icon-moon {
   color: var(--email-color);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.15s ease;
 }
 
 .contact a:hover {
@@ -261,7 +192,6 @@ body[data-theme="light"] .theme-toggle .icon-moon {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border);
-  transition: border-color 0.2s ease;
 }
 
 /* Content */
@@ -280,7 +210,6 @@ body[data-theme="light"] .theme-toggle .icon-moon {
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
   padding: var(--card-padding);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .intro {
@@ -320,7 +249,6 @@ body[data-theme="light"] .theme-toggle .icon-moon {
 .item-list li {
   padding: 24px 0;
   border-top: 1px solid var(--border);
-  transition: border-color 0.2s ease;
 }
 
 .item-list li:first-child {
