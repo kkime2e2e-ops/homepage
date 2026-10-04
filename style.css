@@ -228,6 +228,34 @@ a:hover {
   border-top: 1px solid var(--border);
 }
 
+.social-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-bottom: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--button-accent);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* Content */
 
 .content {
