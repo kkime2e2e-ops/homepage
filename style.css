@@ -15,6 +15,8 @@
   --card-radius: 10px;
   --card-padding: 28px;
   --card-gap: 20px;
+  --spot-color: rgba(217, 154, 91, 0.10);
+  --spot-size: 300px;
 }
 
 * {
@@ -33,6 +35,38 @@ body {
   font-size: 17px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Cursor spotlight */
+
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle var(--spot-size) at var(--mx, 50%) var(--my, 50%),
+    var(--spot-color),
+    transparent 70%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.spotlight.is-visible {
+  opacity: 1;
+}
+
+@media (any-hover: none), (prefers-reduced-motion: reduce) {
+  .spotlight {
+    display: none;
+  }
+}
+
+.layout,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 h1, h2, h3 {
