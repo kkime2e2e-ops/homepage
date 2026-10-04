@@ -1,6 +1,6 @@
 :root {
   --bg: #0E1116;
-  --card-bg: #161B22;
+  --card-bg: rgba(22, 27, 34, 0.6);
   --border: #262D36;
   --text: #E6EDF3;
   --text-muted: #8B98A5;
